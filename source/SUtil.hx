@@ -2,7 +2,6 @@ package;
 
 #if android
 import android.Permissions;
-import android.PermissionsList;
 import android.os.Build.VERSION;
 import android.os.Environment;
 #end
@@ -32,7 +31,7 @@ class SUtil
 	{
 		#if android
 		if (!Permissions.getGrantedPermissions().contains(PermissionsList.WRITE_EXTERNAL_STORAGE)
-			&& !Permissions.getGrantedPermissions().contains(PermissionsList.READ_EXTERNAL_STORAGE))
+			&& !Permissions.getGrantedPermissions().contains(.READ_EXTERNAL_STORAGE))
 		{
 			if (VERSION.SDK_INT > 23 || VERSION.SDK_INT == 23)
 			{
@@ -52,7 +51,7 @@ class SUtil
 		}
 
 		if (Permissions.getGrantedPermissions().contains(PermissionsList.WRITE_EXTERNAL_STORAGE)
-			&& Permissions.getGrantedPermissions().contains(PermissionsList.READ_EXTERNAL_STORAGE))
+			&& Permissions.getGrantedPermissions().contains(.READ_EXTERNAL_STORAGE))
 		{
 			if (!FileSystem.exists(SUtil.getPath()))
 				FileSystem.createDirectory(SUtil.getPath());
